@@ -84,5 +84,4 @@ setTimeout(() => {
 }, 0);
 console.log('log4');
 log1();
-
 // 4 1 3 2
