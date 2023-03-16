@@ -129,7 +129,7 @@ function createCounterStartingFrom(count) {
 const counter = createCounterStartingFrom(10);
 console.log(counter.increment()); // 11
 console.log(counter.increment()); // 12
-console.log(counter.decrement()); // 12
+console.log(counter.decrement()); // 11
 
 // Destructoring, Rest, Spread
 
@@ -259,7 +259,65 @@ const map = (array, mapFn) => {
 const doubleFn = (number) => number * 2;
 map([1, 2, 3, 4], doubleFn) // -> [2,4,6,8]
 
-function filter(array, filterFn) {
+function filter(array, callbackFn) {
+    // 1- create a new array
+    const output = [];
 
+    // 2- check if "each item"
+    for (let index = 0; index < array.length; index++) {
+        const item = array[index];
+        // 2.1- callbackFn must receive (item, index, array) and output true/false (Boolean).
+        const isItemCompliant = callbackFn(item, index, array);
+
+        // 2- is the item ok with the test provided by callbackFn?
+        if (isItemCompliant) {
+            output.push(item);
+        }
+    }
+
+    // 3- return the new array 
+    return output;
 }
-filter(['ciao', false], Boolean) // -> ['ciao']
+const shouldPrintCiao = filter(['ciao', false], Boolean) // -> ['ciao']
+console.log({shouldPrintCiao});
+
+console.clear();
+function some(array, callbackFn){
+    // dato un array, controllare ogni elemento 
+    // fino a quando non trovo un match con il test della callback, a quel punto torna true
+    for (let index = 0; index < array.length; index++) {
+        const item = array[index];
+        const isItemCompliant = callbackFn(item, index, array);
+
+        if(isItemCompliant){
+            console.log('some match item:', item)
+            return true;
+        }
+    }
+
+    // se non ne dovessi trovare torno false
+    return false;
+}
+const isMoreThenTen = function(item, index, array){
+    return item > 12;
+}
+console.log(some([5, 2, 4, 12], isMoreThenTen));
+
+
+function every(array, callbackFn){
+    // dato un array, controllare ogni elemento 
+    // fino a quando non trovo un non-match con il test della callback, 
+    // a quel punto torna false
+    for (let index = 0; index < array.length; index++) {
+        const item = array[index];
+        const isItemCompliant = callbackFn(item, index, array);
+
+        if(!isItemCompliant){
+            console.log('some match item:', item)
+            return false;
+        }
+    }
+
+    // se non ne dovessi trovare torno false
+    return true;
+}
