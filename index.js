@@ -232,12 +232,34 @@ console.log(counter.decrement()); // 12
 
 // Scrivere funzione che replica il metodo forEach secondo queste specifiche:
 
-function forEach(array, callbackFn){
+function forEach(array, callbackFn) {
     // ...
 }
 
-const logFn = (item, index, array) => console.log({item, index, array}); 
+const logFn = (item, index, array) => console.log({ item, index, array });
 
-forEach([1,2,3], logFn) // -> { item: 1, index: 0, array: [1,2,3] }
-                        // -> { item: 2, index: 1, array: [1,2,3] }
-                        // -> { item: 3, index: 2, array: [1,2,3] }
+forEach([1, 2, 3], logFn) // -> { item: 1, index: 0, array: [1,2,3] }
+// -> { item: 2, index: 1, array: [1,2,3] }
+// -> { item: 3, index: 2, array: [1,2,3] }
+
+const map = (array, mapFn) => {
+    // create new array
+    const newArray = [];
+
+    for (let index = 0; index < array.length; index++) {
+        const element = array[index];
+        // add into the new array the modified element
+        newArray[index] = mapFn(element, index, array);
+        // newArray.push( mapFn(element, index, array) );
+    }
+
+    // return the new array
+    return newArray;
+}
+const doubleFn = (number) => number * 2;
+map([1, 2, 3, 4], doubleFn) // -> [2,4,6,8]
+
+function filter(array, filterFn) {
+
+}
+filter(['ciao', false], Boolean) // -> ['ciao']
