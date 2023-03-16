@@ -69,11 +69,6 @@ const textToUpperCase = (text) => {
 elaborateInputWith(textToUpperCase) // trasforma il testo in uppercase e lo logga
 
 
-// Promise
-// Destructoring, rest, spread
-// API calls
-
-
 /*
 
 

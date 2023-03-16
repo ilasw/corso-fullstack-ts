@@ -34,7 +34,8 @@ console.clear();
         // .then(console.log)
         .then((arrayOfFacts) => {
             const html = arrayOfFacts
-                .map(fact => `- ${fact.text}`)
+                // .map(fact => `- ${fact.text}`)
+                .map(({text}) => `- ${text}`)
                 .join('</br>');
             document.body.innerHTML = html;
         })
