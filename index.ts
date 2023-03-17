@@ -5,3 +5,4 @@
 // import './javascript/spread-destructoring';
 
 import './typescript/basic';
+import './typescript/functions';
