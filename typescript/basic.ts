@@ -1,8 +1,22 @@
 type Greeting = string | number;
 type Skill = string | number;
-type Coder = { name: string; skills: Array<Skill> };
+type Coder = { 
+    name: string; 
+    skills: Array<Skill> // === Skill[] !== [Skill]
+};
 
-type UserAddress = { street: string; city: string; country: string; zipCode: string; residence?: { floor: number } };
+type UseState = [string, (() => void)];
+const [state, setState] = ['', () => null]; // 
+
+// type UserAddress = { street: string; city: string; country: string; zipCode: string; residence?: { floor: number } };
+type UserAddressKeys = 'street' | 'city' | 'country' | 'zipCode';
+type UserAddress = Record<UserAddressKeys, string> & { residence?: { floor: number } };
+type ObjectType = { [prop: string]: number };
+
+// type ErroreVoluto = string & undefined;
+// const a: ErroreVoluto = '';
+
+type FormState = 'idle' | 'dirty' | 'loading' | 'success' | 'error';
 
 type User = {
     name: string,
@@ -17,7 +31,7 @@ const user: User = {
         street: '',
         city: 'Catania',
         country: '',
-        zipCode: '',
+        zipCode: ''
     }
 }
 
@@ -44,7 +58,8 @@ console.log({ userResidence })
 // console.log({ a: penultimo, b: ultimo });
 // --- /OT
 
-// Record / Function
+// Record
+
 
 // const message = prompt('Ciao');
 // console.log(message.toUpperCase())
@@ -65,3 +80,8 @@ coder.skills.push(2);
 // coder.skills.push({name: "prova"});
 
 console.log({ coder });
+
+
+// Functions
+
+// async / await
