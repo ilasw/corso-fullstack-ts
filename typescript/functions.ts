@@ -64,16 +64,47 @@ isBetween('supercalifragilistico', 0, 10, 'z') // false
 function bingo(): Array<number> {
     const numbers = Array.from({ length: 90 }, (_, i) => i + 1);
     console.log({ numbers });
-    return []
+
+    return numbers.sort(() => Math.random() - .5).slice(0, 6);
 }
-bingo() // [4, 42, 78, 62, 43, 76]
+console.log('Bingo numbers:', bingo()) // [4, 42, 78, 62, 43, 76]
 
 // contare quanti cerchi sono presenti all'interno del mio numero passato in input;
 // 8 -> 2
 // 4 -> 0
 // 9 -> 1
 function circleCounter(number: string | number): number {
-    return 0;
-}
-circleCounter(875259420433); // 4 
+    const resultMap = { "6": 1, "8": 2, "9": 1, "0": 1 };
+    // let output: number = 0;
 
+    // for (let char of `${number}`) {
+        // output += resultMap[char] ?? 0;
+    // }
+
+    // return output;
+
+    return Array.from(`${number}`).reduce((acc, char) => {
+        return acc + (resultMap[char] ?? 0);
+    }, 0);
+}
+console.log('circleCounter', circleCounter(1808)); // 45
+
+function getNumberDestructured(n: number): string {
+    const numbers = Array.from(`${n}`);
+    const reversNumbers = numbers.reverse();
+    const reversNumbersWithZeros = reversNumbers.map((number, index) => {
+        return `${number}`+"0".repeat(index);
+        // return `${number}`.padEnd(index+1 , "0");
+    });
+
+    return reversNumbersWithZeros.join(' + ');
+
+    // const initialValue: Array<string> = []
+    
+    // return Array.from(`${n}`).reduce((acc, _, index, array) => {
+    //     const reversedChar = array[array.length- index - 1];
+    //     return [...acc, (`${reversedChar}`+"0".repeat(index))];
+    // }, initialValue).join(' + ');
+}
+console.log('getNumberDestructured:', getNumberDestructured(325243)) //  "3 + 40 + 200 + 5000+ 20000 + 300000"
+console.log('getNumberDestructured:', getNumberDestructured(743)) //  "7 + 40 + 700"
