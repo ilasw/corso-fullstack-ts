@@ -9,3 +9,8 @@
 ## Best practices
 - AirBnB style guide JS
 - Conventional commits
+
+
+## Siti per esercitazioni
+- Codewars
+- Leetcode

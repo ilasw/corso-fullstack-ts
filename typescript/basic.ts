@@ -81,7 +81,46 @@ coder.skills.push(2);
 
 console.log({ coder });
 
+// Esercizio TS count occorrenze
+// dato un array contare per ogni elemento quante viene viene ripetuto
+
+const array: Array<string> = ['Roma', 'Milano', 'Catania', 'Roma', 'Perugia', 'Genova', 'Milano', 'Catania', 'Roma']; // as const
+// type CityNames = typeof array[number];  
+// const output: Record<CityNames, number> = {};
+const contatore: Record<string, number> = {};
+
+for (let index = 0; index < array.length; index++) {
+    const city = array[index];
+    
+    // if(!(city in contatore)){
+    //     contatore[city] = 1;
+    // }else{
+    //     contatore[city] += 1;
+    // }
+
+    // // Metodo con operatori di assegnazione
+    // contatore[city] ??= 0;
+    // contatore[city] += 1;
+
+    contatore[city] = (contatore[city] ?? 0) + 1;
+}
+
+// array.reduce((acc, city) => {
+//     acc[city] = (acc[city] ?? 0) + 1;
+//     return acc;
+// }, contatore);
+
+const occorrenze = array.reduce((acc, city) => ({ ...acc, [city]: (acc[city] ?? 0) + 1}), contatore);
+console.log({occorrenze});
+
+
+
+// { Roma: 3, Milano: 2, Catania: 2, Genova: 1} // output calcolato dinamicamente; 
 
 // Functions
 
 // async / await
+
+
+
+export {};
