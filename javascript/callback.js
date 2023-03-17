@@ -70,12 +70,8 @@ elaborateInputWith(textToUpperCase) // trasforma il testo in uppercase e lo logg
 
 
 /*
-
-
     ~/ npm init
     ~/ npm install -D vite
     # configurare gli script su package.json
     ~/ npm run dev
-
-
 */
