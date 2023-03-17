@@ -49,3 +49,31 @@ printCoord({ x: 3, y: 7 });
 //     const { id, title, description } = params;
 // }
 // bestPractice({ id, description, date })
+
+function isBetween(string: string, starting: number, ending: number, toFind: string): boolean {
+    if (ending < starting || starting > string.length) return false;
+    return string.substring(starting, ending).includes(toFind);
+}
+// scriviamo la funzione che ci permette di capire se "toFind" 
+// si trova tra i caratteri "starting" e "ending" di una stringa
+
+isBetween('ciao', 0, 3, 'a') // true
+isBetween('supercalifragilistico', 0, 10, 'z') // false
+
+// estrarre 6 numeri casuali e stamparli a schermo (1-90)
+function bingo(): Array<number> {
+    const numbers = Array.from({ length: 90 }, (_, i) => i + 1);
+    console.log({ numbers });
+    return []
+}
+bingo() // [4, 42, 78, 62, 43, 76]
+
+// contare quanti cerchi sono presenti all'interno del mio numero passato in input;
+// 8 -> 2
+// 4 -> 0
+// 9 -> 1
+function circleCounter(number: string | number): number {
+    return 0;
+}
+circleCounter(875259420433); // 4 
+
