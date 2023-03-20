@@ -11,7 +11,17 @@ function App() {
     setName(value);
   }
 
-  const names = ['Luigi', 'Giacomo', 'Gianmarco', 'Roberto'];
+  const [names, setNames] = useState([]);
+
+  /*
+    1. Prender il nome attualmente inserito;
+    2. Aggiungerlo alla lista di "names";
+    3. Resettare il nome nella input;
+  */ 
+  const addName: React.FormEventHandler<HTMLFormElement> = function (event) {
+    event.preventDefault();
+    console.log({ name });
+  }
 
   return (
     <div className="App">
@@ -22,15 +32,18 @@ function App() {
       }
 
       <div style={{ marginTop: '40px' }}>
-        <input type="text"
-          value={name}
-          onInput={inputHandler} />
+        <form onSubmit={addName}>
+          <input type="text"
+            value={name}
+            onInput={inputHandler} />
+          <button>Salva nome</button>
+        </form>
       </div>
 
       <ul>
-        { names.map((name) => (
+        {names.map((name) => (
           <li>{name}</li>
-        )) }
+        ))}
       </ul>
     </div>
   )
