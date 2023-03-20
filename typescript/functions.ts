@@ -74,7 +74,7 @@ console.log('Bingo numbers:', bingo()) // [4, 42, 78, 62, 43, 76]
 // 4 -> 0
 // 9 -> 1
 function circleCounter(number: string | number): number {
-    const resultMap = { "6": 1, "8": 2, "9": 1, "0": 1 };
+    const resultMap: Record<string, number> = { "6": 1, "8": 2, "9": 1, "0": 1 };
     // let output: number = 0;
 
     // for (let char of `${number}`) {
@@ -108,3 +108,9 @@ function getNumberDestructured(n: number): string {
 }
 console.log('getNumberDestructured:', getNumberDestructured(325243)) //  "3 + 40 + 200 + 5000+ 20000 + 300000"
 console.log('getNumberDestructured:', getNumberDestructured(743)) //  "7 + 40 + 700"
+
+// // trovare la cifra più piccola di un numero ed il suo index
+// const chars = Array.from(String(432191423), (number) => parseInt(number)); // (item, index, array) => {}
+// const minNumber = (Math.min(...chars));
+// console.log(chars.indexOf(minNumber));
+
