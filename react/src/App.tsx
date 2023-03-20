@@ -3,6 +3,16 @@ import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
 
+function NameList (props: {names: string[]}){
+  console.log(props);
+  return <ul>{ props.names.map((name) => (<NameItem name={name} />)) }</ul>
+}
+
+function NameItem (props: {name: string}){
+  console.log(props);
+  return <li>{props.name}</li>
+}
+
 function App() {
   const [name, setName] = useState('');
   const inputHandler: React.FormEventHandler<HTMLInputElement> = (event) => {
@@ -11,17 +21,45 @@ function App() {
     setName(value);
   }
 
-  const [names, setNames] = useState([]);
+  const [names, setNames] = useState<string[]>([]);
 
   /*
     1. Prender il nome attualmente inserito;
     2. Aggiungerlo alla lista di "names";
     3. Resettare il nome nella input;
-  */ 
+  */
   const addName: React.FormEventHandler<HTMLFormElement> = function (event) {
     event.preventDefault();
     console.log({ name });
+
+    // const newList = [...names, name];
+    // setNames(newList);
+
+    // const list = names;
+    // list.push(name)
+    // setNames(list);
+
+    const trimmedName = name.trim();
+
+    if(!trimmedName) return;
+
+    console.log(names); // []
+    setNames([...names, trimmedName]);
+    
+    console.log(names); // []
+    setNames([...names, trimmedName]);
+    // setName('');
+
+    // setNames( (oldNames) => [...oldNames, name] ); // [] -> ['Luca']
+    // setNames( (oldNames) => [...oldNames, name] ); // ['Luca'] -> ['Luca', 'Luca']
+
+    // il setNames è asyncrono e qui riesco a leggere solo il vecchio valore :-(
+    console.log(names);
   }
+
+  // key nel for
+  // child components
+  // tailwindcss
 
   return (
     <div className="App">
@@ -33,18 +71,17 @@ function App() {
 
       <div style={{ marginTop: '40px' }}>
         <form onSubmit={addName}>
-          <input type="text"
+          <input
+            autoFocus
+            onInput={inputHandler}
+            type="text"
             value={name}
-            onInput={inputHandler} />
+          />
           <button>Salva nome</button>
         </form>
       </div>
 
-      <ul>
-        {names.map((name) => (
-          <li>{name}</li>
-        ))}
-      </ul>
+     <NameList names={names} />
     </div>
   )
 }
