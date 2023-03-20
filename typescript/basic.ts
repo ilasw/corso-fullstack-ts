@@ -1,7 +1,7 @@
 type Greeting = string | number;
 type Skill = string | number;
-type Coder = { 
-    name: string; 
+type Coder = {
+    name: string;
     skills: Array<Skill> // === Skill[] !== [Skill]
 };
 
@@ -91,7 +91,7 @@ const contatore: Record<string, number> = {};
 
 for (let index = 0; index < array.length; index++) {
     const city = array[index];
-    
+
     // if(!(city in contatore)){
     //     contatore[city] = 1;
     // }else{
@@ -110,17 +110,76 @@ for (let index = 0; index < array.length; index++) {
 //     return acc;
 // }, contatore);
 
-const occorrenze = array.reduce((acc, city) => ({ ...acc, [city]: (acc[city] ?? 0) + 1}), contatore);
-console.log({occorrenze});
+const occorrenze = array.reduce((acc, city) => ({ ...acc, [city]: (acc[city] ?? 0) + 1 }), contatore);
+console.log({ occorrenze });
 
 
 
 // { Roma: 3, Milano: 2, Catania: 2, Genova: 1} // output calcolato dinamicamente; 
 
-// Functions
 
-// async / await
+// "Reference" vs "Value"
+(function () {
+    console.clear()
 
+    let address = 'via etnea 1';
+    console.log(address);
 
+    address = 'via passo gravina 142';
+    console.log(address);
 
-export {};
+    const dormitorio: Array<string> = [];
+    const persona = 'Pippo';
+
+    console.log({ dormitorio });
+
+    setTimeout(() => {
+        dormitorio.push(persona);
+        console.log(dormitorio);
+    }, 1_000)
+
+    const user = { id: 3, name: 'Luca', address: { city: 'Catania' } };
+    console.log(user);
+
+    // copiamo SEMPRE per valore
+    const newUser = JSON.parse(JSON.stringify(user)); // JSON.parse("{ id: 3, name: 'Luca' }")
+    newUser.id = 4;
+    newUser.address.city = "Milano";
+
+    // copiamo per valore SOLO le proprietà che hanno un primitivo come valore;
+    const clonedUser = {...user}; // id: number, name: string
+    clonedUser.address.city = 'Roma'; // modifica l'obj iniziale perché "address" è una referenza
+    clonedUser.id = 5; // non modifica l'obj iniziale perché modifica per valore
+
+    const structureClone = structuredClone(user);
+    structureClone.id = 6; // modifica solo il valore senza alcuna referenza
+    structureClone.address.city = 'Genova'; // modifica solo il valore senza alcuna referenza
+
+    console.log({ user, newUser, clonedUser })
+
+    // Scrivere una funzione che torna una copia completa del mio oggetto fino al 2° livello;
+    // { id: 3, name: 'Luca', address: { city: 'Catania' } }
+
+    const clone = function(obj: Object): any{
+        // ...
+        // Object.keys || Object.entries
+        Object.keys(obj) // ... 
+        return {}
+    }
+
+    const initialObj = { id: 3, name: 'Luca', address: { city: 'Catania' } };
+    const obj = clone(initialObj);
+    // clone cosa dovrebbe fare:
+    // entra dentro l'oggetto e vede che proprietà ha
+    // per ogni proprietà dovrei salvare i valori primitivi
+    // se il valore non è primitivo...
+    // 
+
+    obj.id = 4;
+    obj.address.city = 'Roma';
+
+    console.log({ initialObj, obj }); // i due oggetti sono diversi;
+
+})();
+
+export { };

@@ -14,3 +14,6 @@
 ## Siti per esercitazioni
 - Codewars
 - Leetcode
+
+## Miscellaneus
+- Can i use, permette di vedere cosa funziona dove: https://caniuse.com/

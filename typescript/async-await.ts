@@ -42,7 +42,7 @@ const pauseFor = async function (time: number) {
 
 // 9:00:00
 console.log(new Date())
-await pauseFor(1_000);
+console.log(await pauseFor(1_000));
 console.log(new Date());
 // 9:00:10
 
