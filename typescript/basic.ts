@@ -160,11 +160,24 @@ console.log({ occorrenze });
     // Scrivere una funzione che torna una copia completa del mio oggetto fino al 2° livello;
     // { id: 3, name: 'Luca', address: { city: 'Catania' } }
 
-    const clone = function(obj: Object): any{
-        // ...
-        // Object.keys || Object.entries
-        Object.keys(obj) // ... 
-        return {}
+    const clone = function<O extends Record<string, unknown>>(obj: O): O{
+        const cloned = {} as O;
+        const properties = Object.keys(obj);
+        console.log(properties);
+
+        // "id", "name", "address"
+        properties.forEach((property: keyof O) => {
+            const value: O[keyof O] = obj[property];
+
+            if(typeof value !== 'object'){
+                cloned[property] = value;
+            }else{
+                // "type guard" 
+                cloned[property] = {...value};
+            }
+        })
+
+        return cloned
     }
 
     const initialObj = { id: 3, name: 'Luca', address: { city: 'Catania' } };
@@ -179,7 +192,9 @@ console.log({ occorrenze });
     obj.address.city = 'Roma';
 
     console.log({ initialObj, obj }); // i due oggetti sono diversi;
-
 })();
+
+type Item<S> = string | Record<string, S>;
+const a = { prova: { prop: { a :{ a :  { a : 'b' } } } } };
 
 export { };

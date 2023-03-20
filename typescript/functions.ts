@@ -114,3 +114,5 @@ console.log('getNumberDestructured:', getNumberDestructured(743)) //  "7 + 40 + 
 // const minNumber = (Math.min(...chars));
 // console.log(chars.indexOf(minNumber));
 
+
+export {};
