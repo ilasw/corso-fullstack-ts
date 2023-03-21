@@ -5,6 +5,10 @@
   min-height: 100vh;
 }
 
+.App > main{
+  padding: 1rem;
+}
+
 .App > header{
   border-bottom: 1px solid #666;
   margin: 1rem 0;
