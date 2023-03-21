@@ -1,37 +1,48 @@
 <script setup lang="ts">
-import { ref } from 'vue'
+import { ref, watch } from 'vue'
 
-defineProps<{ msg: string }>()
+const props = defineProps<{ msg: string }>();
 
-const count = ref(0)
+const count = ref(0);
+const name = ref('Pippo');
+
+const increment = function(){
+  console.log({props})
+  count.value = ++count.value;
+}
+
+
+const items = ['a', 'b'];
+
+// Definire un counter e ad ogni variazione di "count" 
+// fare la chiamare a cat facts con quel "amount"
+watch(count, (newCount, oldCount) => {
+  console.log(`Passing from ${oldCount} to ${newCount}`, {oldCount, newCount});
+})
 </script>
 
 <template>
   <h1>{{ msg }}</h1>
-
-  <div class="card">
-    <button type="button" @click="count++">count is {{ count }}</button>
-    <p>
-      Edit
-      <code>components/HelloWorld.vue</code> to test HMR
-    </p>
+  <div class="logo"><div class="item">a</div></div>
+  <div class="card"> {{ name }}
+    <button type="button" @click="increment()">count is {{ count }}</button>
   </div>
 
-  <p>
-    Check out
-    <a href="https://vuejs.org/guide/quick-start.html#local" target="_blank"
-      >create-vue</a
-    >, the official Vue + Vite starter
-  </p>
-  <p>
-    Install
-    <a href="https://github.com/vuejs/language-tools" target="_blank">Volar</a>
-    in your IDE for a better DX
-  </p>
-  <p class="read-the-docs">Click on the Vite and Vue logos to learn more</p>
+  <li v-for="item in items">{{item}}</li>
+
 </template>
 
-<style scoped>
+<style scoped lang="scss">
+
+.logo{
+  .item{ 
+    background-color: red;
+  }
+}
+
+.logo{
+  display: none;
+}
 .read-the-docs {
   color: #888;
 }
