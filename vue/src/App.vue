@@ -1,13 +1,17 @@
 <script setup lang="ts">
   import HelloWorld from './components/HelloWorld.vue';
+  import Header from './components/Header.vue';
+import CatFacts from './components/CatFacts.vue';
+import NamesForm from './components/NamesForm.vue';
 
   // Children 
   // Direttive
 </script>
 
 <template>
-  <div class="logo"></div>
-  <HelloWorld :msg="'Vite + Vue'" />
+  <Header />
+  <!-- <CatFacts /> -->
+  <NamesForm />
 </template>
 
 <style scoped>
