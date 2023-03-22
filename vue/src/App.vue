@@ -1,8 +1,8 @@
 <script setup lang="ts">
   import HelloWorld from './components/HelloWorld.vue';
   import Header from './components/Header.vue';
-import CatFacts from './components/CatFacts.vue';
-import NamesForm from './components/NamesForm.vue';
+  import CatFacts from './components/CatFacts.vue';
+  import NamesForm from './components/NamesForm.vue';
 
   // Children 
   // Direttive
@@ -11,7 +11,7 @@ import NamesForm from './components/NamesForm.vue';
 <template>
   <Header />
   <!-- <CatFacts /> -->
-  <NamesForm />
+  <router-view></router-view>
 </template>
 
 <style scoped>

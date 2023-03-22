@@ -5,7 +5,7 @@ const count = ref<number>(0);
 const facts = ref<string[]>([]);
 const URL = `https://cat-fact.herokuapp.com/facts/random?animal_type=cat&amount=`;
 
-watch(count, async (newCount) => {
+watch(count, async () => {
     const result = await fetch(URL+count.value).then(r => r.json());
     // const list = Array.isArray(result) ? result : [result];
     const list: Array<{ _id: string, text:string }> = [].concat(result);
