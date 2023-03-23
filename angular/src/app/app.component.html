@@ -1,18 +1,18 @@
 <div>
-  <button (click)="decrement()">-1</button>
+  <button (click)="decrement()"
+          [disabled]="count===1"
+  >-1</button>
 
   <span>
-    You are counting {{count}}
-    {{ (count !== 1) ? 'times' : 'time' }}
+    You are on page {{count}}
   </span>
 
-  <button (click)="increment()">+1</button>
+  <button (click)="increment()"
+  >+1</button>
 </div>
 
-<div *ngIf="count > 3">You are awesome 🎉</div>
-
-<ng-container *ngIf="count > 0"> <!-- Fragment in React o <template> in Vue-->
-  <div *ngFor="let item of items">
+<ol *ngIf="titles.length > 0">
+  <li *ngFor="let item of titles">
     {{item}}
-  </div>
-</ng-container>
+  </li>
+</ol>
