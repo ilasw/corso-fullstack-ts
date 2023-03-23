@@ -6,7 +6,13 @@
     {{ (count !== 1) ? 'times' : 'time' }}
   </span>
 
-  <button (click)="count = count+1">+1</button>
+  <button (click)="increment()">+1</button>
 </div>
 
-<div *ngIf="count > 10">You are awesome 🎉</div>
+<div *ngIf="count > 3">You are awesome 🎉</div>
+
+<ng-container *ngIf="count > 0"> <!-- Fragment in React o <template> in Vue-->
+  <div *ngFor="let item of items">
+    {{item}}
+  </div>
+</ng-container>
