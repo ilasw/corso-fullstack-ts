@@ -1,4 +1,4 @@
-import { of, map, fromEvent, tap, from, interval, take} from 'rxjs';
+import { of, map, fromEvent, tap, from, interval, take, range, startWith, scan } from 'rxjs';
 
 // of('Hello World')
 //   .pipe(
@@ -38,9 +38,25 @@ import { of, map, fromEvent, tap, from, interval, take} from 'rxjs';
 
 // Bingo with RxJS
 // esegui un console.log di 6 numeri randomici; ??
+// "scan"
 // Bonus: annuncia i risultati distanziati 1s l'uno dall'altro; // "interval"
-const allNumbers = Array.from({length: 90}, (_, i) => i+1);
+const allNumbers = Array.from({ length: 90 }, (_, i) => i + 1);
+const mandrakeNumbers = allNumbers.sort(() => Math.random() - .5);
 
-(Observable()).subscribe((number) => console.log(number) )
+// from(mandrakeNumbers).pipe(
+//   take(6)
+// ).subscribe((number) => console.log(number))
+
+interval(10)
+  .pipe(
+    take(6),
+    scan(
+      (array: number[], _, i) => array.slice(1),
+      allNumbers.sort(() => Math.random() - .5)
+      ),
+    map(array => array[0]),
+  ).subscribe((number) => {
+    console.log(number)
+  })
 
 export { }
