@@ -1,4 +1,4 @@
-<div>
+<div *ngIf="(count$|async) as count">
   <button (click)="decrement()"
           [disabled]="count===1"
   >-1</button>
@@ -11,7 +11,7 @@
   >+1</button>
 </div>
 
-<ol *ngIf="titles.length > 0">
+<ol *ngIf="(title$|async) as titles">
   <li *ngFor="let item of titles">
     {{item}}
   </li>
