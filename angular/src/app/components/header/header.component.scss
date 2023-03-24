@@ -1,0 +1,27 @@
+.wrapper{
+  align-items: center;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+}
+
+.logo{
+  img{
+    aspect-ratio: 1/1;
+    width: 3rem;
+  }
+}
+
+.nav{
+  &-list{
+    align-items: center;
+    display: flex;
+    flex-flow: row nowrap;
+    gap: .5rem;
+    justify-content: flex-end;
+  }
+
+  &-item{
+    display: inline-block;
+  }
+}
