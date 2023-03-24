@@ -1,6 +1,13 @@
 <div *ngIf="(count$|async) as count">
-  <button (click)="decrement()"
+  <button (click)="decrement($event)"
           [disabled]="count===1"
+
+          [style.margin-top.rem]="2"
+          [style.margin-left.rem]="2"
+
+          [class.disabled]="count==1"
+
+          [attr.data-count]="count"
   >-1</button>
 
   <span>
