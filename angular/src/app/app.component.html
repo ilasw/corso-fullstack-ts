@@ -1,27 +1,7 @@
 <app-header [navItems]="['Home']"></app-header>
 
-<div *ngIf="(count$|async) as count">
-  <button (click)="decrement($event)"
-          [disabled]="count===1"
-
-          [style.margin-top.rem]="2"
-          [style.margin-left.rem]="2"
-
-          [class.disabled]="count==1"
-
-          [attr.data-count]="count"
-  >-1</button>
-
-  <span>
-    You are on page {{count}}
-  </span>
-
-  <button (click)="increment()"
-  >+1</button>
+<div class="container">
+  {{10000|currency:'EUR'}} <br/>
+  {{date|date:'dd/MM/YYYY':'+2'}} <br/>
+  {{'10'|toDoubledNumber}}
 </div>
-
-<ol *ngIf="(title$|async) as titles">
-  <li *ngFor="let item of titles">
-    {{item}}
-  </li>
-</ol>

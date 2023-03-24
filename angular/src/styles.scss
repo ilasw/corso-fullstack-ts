@@ -1,4 +1,20 @@
 
+
+a:not([class]){
+  color: inherit;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+
+  &:hover{
+    text-decoration: none;
+  }
+
+  &:after{
+    content: " >";
+  }
+}
+
 .container{
+  margin: 0 auto;
   width: min(88%, 80rem);
 }

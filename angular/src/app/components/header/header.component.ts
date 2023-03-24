@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit, ViewEncapsulation } from '@angular/core';
 
 @Component({
   selector: 'app-header',
@@ -9,8 +9,6 @@ export class HeaderComponent implements OnInit {
 
   @Input() navItems!: Array<string>;
 
-  prop: string = 'pippo';
-
   constructor(){
     console.log(`I'm a beliver`);
     console.log(this.navItems);
@@ -20,5 +18,4 @@ export class HeaderComponent implements OnInit {
     console.log('on init');
     console.log('navItems:', this.navItems);
   }
-
 }

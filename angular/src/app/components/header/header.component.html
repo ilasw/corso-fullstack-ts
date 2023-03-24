@@ -1,19 +1,23 @@
 <header class="header">
+
   <div class="container">
     <div class="wrapper">
+
       <div class="logo">
         <img src="assets/angular.svg"
             width="100"
-            alt="Mi sento tutto voice over" />
+            alt="Angular logo" />
       </div>
 
       <nav class="nav">
-        <ul *ngIf="navItems.length > 0"
+        <ul *ngIf="navItems && navItems.length > 0"
             class="nav-list">
-          <li *ngFor="let item of navItems"
-              class="nav-item">{{item}}</li>
+          <app-nav-item *ngFor="let item of navItems"
+                        [item]="item"
+          ></app-nav-item>
         </ul>
       </nav>
+
     </div>
   </div>
 </header>

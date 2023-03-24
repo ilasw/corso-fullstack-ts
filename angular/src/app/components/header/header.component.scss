@@ -5,6 +5,10 @@
   justify-content: space-between;
 }
 
+.container{
+  background: green;
+}
+
 .logo{
   img{
     aspect-ratio: 1/1;
@@ -19,9 +23,11 @@
     flex-flow: row nowrap;
     gap: .5rem;
     justify-content: flex-end;
+    margin: 0;
+    padding: 0;
   }
+}
 
-  &-item{
-    display: inline-block;
-  }
+::ng-deep .nav-item{
+  display: inline-block;
 }

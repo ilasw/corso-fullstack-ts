@@ -35,6 +35,8 @@ export class AppComponent {
 
   private httpClient = inject(HttpClient);
 
+  date = new Date();
+
   url = "https://newsapi.org/v2/everything?q=Italia&sortBy=publishedAt&apiKey=cea52831eed64f90961345afeec19f5e&pageSize=10&page="
 
   count$ = new BehaviorSubject<number>(1);
@@ -56,5 +58,18 @@ export class AppComponent {
 
     const currentValue = this.count$.getValue();
     this.count$.next(currentValue-1);
+  }
+
+  constructor(){
+    console.log(10_000);
+    const currentLocale = globalThis.navigator?.language ?? 'it';
+    console.log({currentLocale});
+    const date = new Date();
+
+    console.log(new Intl.DateTimeFormat(currentLocale).format())
+    console.log(new Intl.DateTimeFormat('en').format())
+
+    console.log(new Intl.NumberFormat('it').format(10_000));
+    console.log(new Intl.NumberFormat('en').format(10_000));
   }
 }
