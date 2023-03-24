@@ -1,3 +1,5 @@
+<app-header [navItems]="['Home']"></app-header>
+
 <div *ngIf="(count$|async) as count">
   <button (click)="decrement($event)"
           [disabled]="count===1"
