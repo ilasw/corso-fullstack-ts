@@ -3,17 +3,5 @@
 ></app-header>
 
 <div class="container">
-  <ul *ngIf="(developer|castArray) as properties">
-    <li *ngFor="let prop of properties">
-      {{prop|json}}
-    </li>
-  </ul>
-
-  {{ 'ciao'|castArray }} <!--  [c,i,a,o] -->
-  {{ 12.5|castArray }} <!--  [1,2, ".", 5] -->
-  {{ nan|castArray }} <!--  [1,2, ".", 5] -->
-  {{ ['a', 'b']|castArray }} <!--  [a,b] -->
-  {{ null|castArray|json }} <!--  [] -->
-
-  {{'ciao' | castArray | json}}
+  <app-accordion-group />
 </div>

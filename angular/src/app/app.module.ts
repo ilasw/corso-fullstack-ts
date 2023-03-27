@@ -11,6 +11,7 @@ import { ToDoubledNumberPipe } from './pipes/to-doubled-number/to-doubled-number
 import { IntPipe } from './pipes/intl/int.pipe';
 import { CastArrayPipe } from './pipes/cast-array/cast-array.pipe';
 import { AccordionGroupComponent } from './components/accordion-group/accordion-group.component';
+import { AccordionItemComponent } from './components/accordion-item/accordion-item.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { AccordionGroupComponent } from './components/accordion-group/accordion-
     ToDoubledNumberPipe,
     IntPipe,
     CastArrayPipe,
-    AccordionGroupComponent
+    AccordionGroupComponent,
+    AccordionItemComponent
   ],
   imports: [
     BrowserModule,

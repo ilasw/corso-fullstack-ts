@@ -1,0 +1,4 @@
+<div class="accordion-item">
+  <button (click)="clickOnButton.emit()">{{ item.heading }}</button>
+  <div *ngIf="isOpen">{{ item.content }}</div>
+</div>

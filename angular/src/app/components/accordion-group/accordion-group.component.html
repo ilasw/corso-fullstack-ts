@@ -1,4 +1,6 @@
 <!-- creare un accordion-item come component -->
-<accordion-item
-*ngFor="let item of items"
-></accordion-item>
+<app-accordion-item *ngFor="let item of items; index as i"
+                    [item]="item"
+                    [isOpen]="i === currentOpen"
+                    (clickOnButton)="toggle(i)"
+/>
