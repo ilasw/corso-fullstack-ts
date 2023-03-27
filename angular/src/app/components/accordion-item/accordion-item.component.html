@@ -1,4 +1,6 @@
-<div class="accordion-item">
-  <button (click)="clickOnButton.emit()">{{ item.heading }}</button>
-  <div *ngIf="isOpen">{{ item.content }}</div>
+<button class="heading" (click)="clickOnButton.emit()">
+  {{ item.heading }}
+</button>
+<div class="content" *ngIf="isOpen">
+  <div class="inner-content">{{ item.content }}</div>
 </div>
