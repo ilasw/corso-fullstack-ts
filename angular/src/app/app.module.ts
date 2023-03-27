@@ -10,6 +10,7 @@ import { CapitalizePipe } from './pipes/capitalize/capitalize.pipe';
 import { ToDoubledNumberPipe } from './pipes/to-doubled-number/to-doubled-number.pipe';
 import { IntPipe } from './pipes/intl/int.pipe';
 import { CastArrayPipe } from './pipes/cast-array/cast-array.pipe';
+import { AccordionGroupComponent } from './components/accordion-group/accordion-group.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { CastArrayPipe } from './pipes/cast-array/cast-array.pipe';
     CapitalizePipe,
     ToDoubledNumberPipe,
     IntPipe,
-    CastArrayPipe
+    CastArrayPipe,
+    AccordionGroupComponent
   ],
   imports: [
     BrowserModule,
