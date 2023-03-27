@@ -1,4 +1,4 @@
-import { Component, Input, OnInit, ViewEncapsulation } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output, ViewEncapsulation } from '@angular/core';
 
 @Component({
   selector: 'app-header',
@@ -8,6 +8,7 @@ import { Component, Input, OnInit, ViewEncapsulation } from '@angular/core';
 export class HeaderComponent implements OnInit {
 
   @Input() navItems!: Array<string>;
+  @Output() logoClicked = new EventEmitter();
 
   constructor(){
     console.log(`Non riesco a leggere la props e torno undefined`);
@@ -17,5 +18,9 @@ export class HeaderComponent implements OnInit {
   ngOnInit(): void {
     console.log('on init');
     console.log('navItems:', this.navItems); // [...]
+  }
+
+  logoClickHandler(){
+    this.logoClicked.emit('Sono un valore emesso al click del logo');
   }
 }

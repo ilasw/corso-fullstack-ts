@@ -11,6 +11,7 @@ import { mock } from './mocks/news';
 })
 export class AppComponent implements OnInit, OnChanges, AfterViewInit {
 
+  nan = NaN;
   developer = {
     firstName: 'John',
     lastName: 'Doe',
@@ -62,5 +63,9 @@ export class AppComponent implements OnInit, OnChanges, AfterViewInit {
   // Metodo viene eseguito quando le props cambiano
   ngOnChanges(changes: SimpleChanges): void {
 
+  }
+
+  handleClickedOnNav(event: any){
+    console.log({event});
   }
 }

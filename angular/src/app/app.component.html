@@ -1,4 +1,6 @@
-<app-header [navItems]="['Home']"></app-header>
+<app-header [navItems]="['Home']"
+            (logoClicked)="handleClickedOnNav($event)"
+></app-header>
 
 <div class="container">
   <ul *ngIf="(developer|castArray) as properties">
@@ -8,7 +10,8 @@
   </ul>
 
   {{ 'ciao'|castArray }} <!--  [c,i,a,o] -->
-  {{ 12|castArray }} <!--  [1,2] -->
+  {{ 12.5|castArray }} <!--  [1,2, ".", 5] -->
+  {{ nan|castArray }} <!--  [1,2, ".", 5] -->
   {{ ['a', 'b']|castArray }} <!--  [a,b] -->
   {{ null|castArray|json }} <!--  [] -->
 

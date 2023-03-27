@@ -29,6 +29,11 @@ export class CastArrayPipe implements PipeTransform {
   transform(value: any): Array<any> {
     // if(typeof value === 'string' || typeof value === 'number'){
     if (['string', 'number'].includes(typeof value)) {
+
+      if(typeof value === 'number' && !Number.isInteger(value)){
+        console.warn('Attenzione: il risultato potrebbe essere NaN o array mixed di string && numbers')
+      }
+
       return String(value).split('');
       // return [...String(value)];
       // return Array.from(String(value));
