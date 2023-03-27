@@ -6,6 +6,10 @@ type IntlPipeOptions = {
   date: Intl.DateTimeFormatOptions
 };
 
+export function formatDateByIntl(){
+
+}
+
 @Pipe({
   name: 'int',
 })
@@ -24,10 +28,10 @@ export class IntPipe implements PipeTransform {
     {{ 10000|intl:'number':{ style: 'currency', currency: 'USD'} }}
   */
 
-  transform<O extends IntlPipeOptions>(
+  transform<K extends keyof IntlPipeOptions>(
     value: string | number,
-    method: keyof O = 'number',
-    options?: O[keyof O]
+    method: K,
+    options?: IntlPipeOptions[K]
   ): unknown {
     const locale = globalThis.navigator?.language;
 
@@ -38,9 +42,9 @@ export class IntPipe implements PipeTransform {
         return `Errore: Non hai inserito una data valida`;
       }
 
-      if(options){
-        return new Intl.DateTimeFormat('it', options).format(myDate);
-      }
+      // if(typeof options !== 'undefined'){
+      //   return new Intl.DateTimeFormat('it', options).format(myDate);
+      // }
 
       return new Intl.DateTimeFormat('it').format(myDate);
     }

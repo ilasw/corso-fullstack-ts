@@ -1,11 +1,16 @@
 <app-header [navItems]="['Home']"></app-header>
 
 <div class="container">
-  {{10000|currency:'EUR'}} <br/>
-  {{date|date:'dd/MM/YYYY':'+2'}} <br/>
-  {{'10'|toDoubledNumber}}
+  <ul *ngIf="(developer|castArray) as properties">
+    <li *ngFor="let prop of properties">
+      {{prop|json}}
+    </li>
+  </ul>
 
-  <hr>
+  {{ 'ciao'|castArray }} <!--  [c,i,a,o] -->
+  {{ 12|castArray }} <!--  [1,2] -->
+  {{ ['a', 'b']|castArray }} <!--  [a,b] -->
+  {{ null|castArray|json }} <!--  [] -->
 
-  {{'10' | int : 'number' : {style: 'currency', currency: 'EUR'} }}
+  {{'ciao' | castArray | json}}
 </div>

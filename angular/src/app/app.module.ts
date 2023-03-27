@@ -6,9 +6,10 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from '@/components/header/header.component';
 import { NavItemComponent } from './components/nav-item/nav-item.component';
-import { CapitalizePipe } from './pipes/capitalize.pipe';
-import { ToDoubledNumberPipe } from './pipes/to-doubled-number.pipe';
-import { IntPipe } from './pipes/int.pipe';
+import { CapitalizePipe } from './pipes/capitalize/capitalize.pipe';
+import { ToDoubledNumberPipe } from './pipes/to-doubled-number/to-doubled-number.pipe';
+import { IntPipe } from './pipes/intl/int.pipe';
+import { CastArrayPipe } from './pipes/cast-array/cast-array.pipe';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { IntPipe } from './pipes/int.pipe';
     NavItemComponent,
     CapitalizePipe,
     ToDoubledNumberPipe,
-    IntPipe
+    IntPipe,
+    CastArrayPipe
   ],
   imports: [
     BrowserModule,

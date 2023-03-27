@@ -10,12 +10,12 @@ export class HeaderComponent implements OnInit {
   @Input() navItems!: Array<string>;
 
   constructor(){
-    console.log(`I'm a beliver`);
-    console.log(this.navItems);
+    console.log(`Non riesco a leggere la props e torno undefined`);
+    console.log(this.navItems); // undefined
   }
 
   ngOnInit(): void {
     console.log('on init');
-    console.log('navItems:', this.navItems);
+    console.log('navItems:', this.navItems); // [...]
   }
 }

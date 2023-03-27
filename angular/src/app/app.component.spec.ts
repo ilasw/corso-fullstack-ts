@@ -1,9 +1,13 @@
-import { ToDoubledNumberPipe } from './pipes/to-doubled-number.pipe';
+import { CastArrayPipe } from './pipes/cast-array/cast-array.pipe';
+import { ToDoubledNumberPipe } from './pipes/to-doubled-number/to-doubled-number.pipe';
 import { HeaderComponent } from '@/components/header/header.component';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { TestBed } from '@angular/core/testing';
 import { RouterTestingModule } from '@angular/router/testing';
 import { AppComponent } from './app.component';
+import { NavItemComponent } from './components/nav-item/nav-item.component';
+import { CapitalizePipe } from './pipes/capitalize/capitalize.pipe';
+import { IntPipe } from './pipes/intl/int.pipe';
 
 describe('AppComponent', () => {
   beforeEach(async () => {
@@ -15,7 +19,11 @@ describe('AppComponent', () => {
       declarations: [
         AppComponent,
         HeaderComponent,
-        ToDoubledNumberPipe
+        NavItemComponent,
+        CapitalizePipe,
+        ToDoubledNumberPipe,
+        IntPipe,
+        CastArrayPipe
       ]
     }).compileComponents();
   });
