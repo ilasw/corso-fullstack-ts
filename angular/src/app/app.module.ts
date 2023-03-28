@@ -12,6 +12,7 @@ import { IntPipe } from './pipes/intl/int.pipe';
 import { CastArrayPipe } from './pipes/cast-array/cast-array.pipe';
 import { AccordionGroupComponent } from './components/accordion-group/accordion-group.component';
 import { AccordionItemComponent } from './components/accordion-item/accordion-item.component';
+import { ModalComponent } from './components/modal/modal.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { AccordionItemComponent } from './components/accordion-item/accordion-it
     IntPipe,
     CastArrayPipe,
     AccordionGroupComponent,
-    AccordionItemComponent
+    AccordionItemComponent,
+    ModalComponent
   ],
   imports: [
     BrowserModule,
