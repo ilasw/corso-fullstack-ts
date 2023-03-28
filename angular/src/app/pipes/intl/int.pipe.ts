@@ -28,15 +28,19 @@ export class IntPipe implements PipeTransform {
     {{ 10000|intl:'number':{ style: 'currency', currency: 'USD'} }}
   */
 
-  transform<K extends keyof IntlPipeOptions>(
-    value: string | number,
-    method: K,
-    options?: IntlPipeOptions[K]
-  ): unknown {
+  transform(value: string | number, method: 'number'): string;
+  transform(value: string | number, method: 'date'): unknown;
+  transform(value: string | number, method: 'number', options: Intl.NumberFormatOptions): unknown;
+  transform(value: string | number, method: 'date', options: Intl.DateTimeFormatOptions): unknown;
+  transform(value: string | number, method: 'date'|'number', options?: Intl.NumberFormatOptions|Intl.DateTimeFormatOptions): unknown {
     const locale = globalThis.navigator?.language;
 
     if(method === 'date'){
       const myDate = new Date(value);
+
+      if(!!options){
+        console.log(options);
+      }
 
       if(Number.isNaN(myDate.getHours())){
         return `Errore: Non hai inserito una data valida`;

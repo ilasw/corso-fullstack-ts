@@ -11,7 +11,7 @@ import { mock } from './mocks/news';
 })
 export class AppComponent implements OnInit, OnChanges, AfterViewInit {
 
-  // - Output
+  // ok - Output
   // - TS - Function overloads
   // - Post pranzo - Animations
   // - M/P - Routing
