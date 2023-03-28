@@ -18,45 +18,11 @@ export class AppComponent implements OnInit, OnChanges, AfterViewInit {
   // - P - Services
 
   isModalOpen = false;
-
-  nan = NaN;
-  developer = {
-    firstName: 'John',
-    lastName: 'Doe',
-    skills: ['JavaScript', 'TypeScript']
+  toggle(source:string) {
+    this.isModalOpen = !this.isModalOpen;
+    console.log(`La modale si è chiusa cliccado su:`, source);
   }
 
-  date = new Date();
-
-  url = "https://newsapi.org/v2/everything?q=Italia&sortBy=publishedAt&apiKey=cea52831eed64f90961345afeec19f5e&pageSize=10&page="
-
-  // RxJS && TypeScript
-  count$ = new BehaviorSubject<number>(1);
-  title$ = this.count$.pipe(
-    tap(console.log), // tap: esegue operazioni esterne
-    // switchMap((count) => this.httpClient.get<News>(this.url+count)),
-    switchMap((count) => of<[News, number]>([mock, count])), // prende un valore, e torna un nuovo Osservabile
-    map<[News, number], [Article[], number]>(([news, count]) => [news.articles, count]), // prende un valore e ne torna un'altro
-    map(([articles, count]) => articles.slice(0, count).map((article) => article.title))
-  );
-
-  increment(){
-    const currentValue = this.count$.getValue();
-    this.count$.next(currentValue+1);
-  }
-
-  decrement(event: UIEvent){
-    event.preventDefault();
-
-    const currentValue = this.count$.getValue();
-    this.count$.next(currentValue-1);
-  }
-
-  // La classe viene istanziata ma non è ancora stata renderizzata
-  constructor(){
-    const pipe = new IntPipe();
-    console.log(pipe.transform('10', 'number', {style: 'currency', currency: 'EUR'}));
-  }
 
   // Viene lanciato appena viene fatto il passaggio di props, ma ancora alcuni elementi potrebbero non essere pronti
   ngOnInit(){

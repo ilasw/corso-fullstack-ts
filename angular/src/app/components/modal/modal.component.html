@@ -1,1 +1,9 @@
-<p>modal works!</p>
+<div class="outer" *ngIf="isOpen">
+  <div class="shadow" (click)="toggleOpen.emit('shadow')"></div>
+  <div class="modal">
+    <div class="modal-content">Modale è aperta</div>
+    <div class="modal-actions">
+      <button (click)="toggleOpen.emit('accetta')">Accetta</button>
+    </div>
+  </div>
+</div>
