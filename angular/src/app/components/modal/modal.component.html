@@ -1,9 +1,14 @@
-<div class="outer" *ngIf="isOpen">
-  <div class="shadow" (click)="toggleOpen.emit('shadow')"></div>
-  <div class="modal">
+<div class="outer" [class.is-open]="isOpen">
+  <div class="shadow"
+        *ngIf="isOpen"
+        @shadowEntrance
+  (click)="toggleOpen.emit('shadow')"></div>
+
+  <div class="modal" @slideInOut *ngIf="isOpen">
     <div class="modal-content">Modale è aperta</div>
     <div class="modal-actions">
       <button (click)="toggleOpen.emit('accetta')">Accetta</button>
     </div>
   </div>
+
 </div>
