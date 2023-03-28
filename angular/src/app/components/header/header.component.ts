@@ -1,4 +1,5 @@
-import { Component, EventEmitter, Input, OnInit, Output, ViewEncapsulation } from '@angular/core';
+import { BlogService } from './../../services/blog.service';
+import { Component, EventEmitter, Input, OnInit, Output, ViewEncapsulation, inject } from '@angular/core';
 
 @Component({
   selector: 'app-header',
@@ -9,6 +10,8 @@ export class HeaderComponent implements OnInit {
 
   @Input() navItems!: Array<string>;
   @Output() logoClicked = new EventEmitter();
+
+  public blogService = inject(BlogService);
 
   constructor(){
     console.log(`Non riesco a leggere la props e torno undefined`);

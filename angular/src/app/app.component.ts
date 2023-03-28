@@ -12,17 +12,10 @@ import { mock } from './mocks/news';
 export class AppComponent implements OnInit, OnChanges, AfterViewInit {
 
   // ok - Output
-  // - TS - Function overloads
-  // - Post pranzo - Animations
+  // ok - TS - Function overloads
+  // ok - Post pranzo - Animations
   // - M/P - Routing
   // - P - Services
-
-  isModalOpen = false;
-  toggle(source:string) {
-    this.isModalOpen = !this.isModalOpen;
-    console.log(`La modale si è chiusa cliccado su:`, source);
-  }
-
 
   // Viene lanciato appena viene fatto il passaggio di props, ma ancora alcuni elementi potrebbero non essere pronti
   ngOnInit(){

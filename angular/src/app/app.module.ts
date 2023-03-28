@@ -14,6 +14,10 @@ import { CastArrayPipe } from './pipes/cast-array/cast-array.pipe';
 import { AccordionGroupComponent } from './components/accordion-group/accordion-group.component';
 import { AccordionItemComponent } from './components/accordion-item/accordion-item.component';
 import { ModalComponent } from './components/modal/modal.component';
+import { HomePageComponent } from './pages/home-page/home-page.component';
+import { EmptyPageComponent } from './pages/empty-page/empty-page.component';
+import { BlogPageComponent } from './pages/blog-page/blog-page.component';
+import { BlogArticlePageComponent } from './pages/blog-article-page/blog-article-page.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +30,11 @@ import { ModalComponent } from './components/modal/modal.component';
     CastArrayPipe,
     AccordionGroupComponent,
     AccordionItemComponent,
-    ModalComponent
+    ModalComponent,
+    HomePageComponent,
+    EmptyPageComponent,
+    BlogPageComponent,
+    BlogArticlePageComponent
   ],
   imports: [
     BrowserModule,

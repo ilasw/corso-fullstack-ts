@@ -2,10 +2,4 @@
             (logoClicked)="handleClickedOnNav($event)"
 ></app-header>
 
-<div class="container">
-  <app-accordion-group />
-
-  <app-modal  [isOpen]="isModalOpen"
-              (toggleOpen)="toggle($event)"></app-modal>
-  <button (click)="isModalOpen=true">Apri la modale</button>
-</div>
+<router-outlet></router-outlet>
