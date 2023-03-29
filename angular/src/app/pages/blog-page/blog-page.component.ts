@@ -11,4 +11,8 @@ export class BlogPageComponent {
 
   articles$ =  this.blogService.getArticles$()
 
+  // la pagina sta caricando -> null
+  // non sono stati trovati risultati -> []
+  // ho risultati -> [{...}, ...]
+  // abbiamo errori
 }

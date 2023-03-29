@@ -18,6 +18,7 @@ import { HomePageComponent } from './pages/home-page/home-page.component';
 import { EmptyPageComponent } from './pages/empty-page/empty-page.component';
 import { BlogPageComponent } from './pages/blog-page/blog-page.component';
 import { BlogArticlePageComponent } from './pages/blog-article-page/blog-article-page.component';
+import { InputSelectComponent } from './components/input-select/input-select.component';
 
 @NgModule({
   declarations: [
@@ -34,7 +35,8 @@ import { BlogArticlePageComponent } from './pages/blog-article-page/blog-article
     HomePageComponent,
     EmptyPageComponent,
     BlogPageComponent,
-    BlogArticlePageComponent
+    BlogArticlePageComponent,
+    InputSelectComponent
   ],
   imports: [
     BrowserModule,

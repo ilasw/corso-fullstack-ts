@@ -2,10 +2,28 @@
   <div class="container">
     <h2>Articoli</h2>
 
-    <article *ngFor="let article of articles$ | async">
-      <h3>{{ article.title }}</h3>
-      <time>{{ article.time * 1_000 | date }}</time> -
-      <a [routerLink]="'/blog/' + article.id">Read more</a>
-    </article>
+    <div>
+      Ordina per:
+      <app-input-select>
+        <option value="newer">New first</option>
+      </app-input-select>
+    </div>
+
+    <ng-container *ngIf="articles$ | async as articles; else loader">
+      <ng-container *ngFor="let article of articles">
+        <!-- casistica in cui tutto è andato bene -->
+        <article *ngIf="article; else errorArticle">
+          <h3>{{ article.title }}</h3>
+          <time>{{ article.time * 1_000 | date }}</time> -
+          <a [routerLink]="'/blog/' + article.id">Read more</a>
+        </article>
+      </ng-container>
+    </ng-container>
   </div>
 </section>
+
+<ng-template #errorArticle> Article with error </ng-template>
+
+<ng-template #loader>
+  <div class="loader">Caricamento in corso...</div>
+</ng-template>

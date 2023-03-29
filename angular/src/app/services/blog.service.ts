@@ -1,5 +1,5 @@
 import { HttpClient } from '@angular/common/http';
-import { BehaviorSubject, tap, map, from, concatMap, toArray } from 'rxjs';
+import { BehaviorSubject, tap, map, from, concatMap, toArray, catchError, of } from 'rxjs';
 import { Injectable, inject } from '@angular/core';
 
 const BASE_URL = `https://hacker-news.firebaseio.com/v0`;
@@ -27,9 +27,10 @@ export class BlogService {
       // Per ogni valore emesso eseguire una chiamata usando
       // un *Map che fa la chiamata *map((id) => this.http.get(,.,.))
       concatMap((id) => this.getArticleFromId$(id)),
+      // gestiamo errore, se la chiamata fallisce torniamo null al posto di Article
+      catchError(error => of(null)),
       // devo rimettere insieme i vari risultati
       toArray()
-
     )
   }
   // fare chiamata alla lista, prendere gli ID e poi per ogni id
