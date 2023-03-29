@@ -9,8 +9,8 @@ a:not([class]){
     text-decoration: none;
   }
 
-  &:after{
-    content: " >";
+  &:before{
+    content: "☍ ";
   }
 }
 

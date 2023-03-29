@@ -7,6 +7,6 @@ import { Component, Input } from '@angular/core';
 })
 export class NavItemComponent {
 
-  @Input() item!: string;
+  @Input() item!: Record<'label'|'path', string>;
 
 }

@@ -1,6 +1,4 @@
 import { BlogService } from './../../services/blog.service';
-import { map } from 'rxjs';
-import { ActivatedRoute } from '@angular/router';
 import { Component, inject } from '@angular/core';
 
 @Component({
@@ -9,16 +7,8 @@ import { Component, inject } from '@angular/core';
   styleUrls: ['./blog-page.component.scss']
 })
 export class BlogPageComponent {
-
-  private route = inject(ActivatedRoute);
   public blogService = inject(BlogService);
 
-  articles$ = this.route.data.pipe(map((data) => data['articles']??[]));
+  articles$ =  this.blogService.getArticles$()
 
-  updateDato(){
-    const oldValue = this.blogService.dato$.getValue();
-    this.blogService.dato$.next(oldValue+1);
-    this.blogService.dato += 1;
-    this.blogService.obj = {sononuovo: 'èvero'};
-  }
 }

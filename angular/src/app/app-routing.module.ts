@@ -31,7 +31,7 @@ const routes: Routes = [
         },
       },
       {
-        path: ':slug',
+        path: ':id',
         component: BlogArticlePageComponent,
         // mostrare il dato statico
         data: {

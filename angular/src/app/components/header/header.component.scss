@@ -1,12 +1,9 @@
 .wrapper{
   align-items: center;
+  border-bottom: 1px solid;
   display: flex;
   flex-flow: row nowrap;
   justify-content: space-between;
-}
-
-.container{
-  background: green;
 }
 
 .logo{

@@ -1,14 +1,11 @@
 <section>
-  <h2>Articoli</h2>
+  <div class="container">
+    <h2>Articoli</h2>
 
-  <article *ngFor="let article of (articles$|async)">
-    <h3>{{article.title}}</h3>
-    <time>{{article.date|date}}</time> - <a [routerLink]="'/blog/'+article.slug">Read more</a>
-  </article>
+    <article *ngFor="let article of articles$ | async">
+      <h3>{{ article.title }}</h3>
+      <time>{{ article.time * 1_000 | date }}</time> -
+      <a [routerLink]="'/blog/' + article.id">Read more</a>
+    </article>
+  </div>
 </section>
-
-<hr />
-
-{{blogService.obj|json}} (non reattivo) vs
-{{blogService.dato}} (non reattivo) vs
-{{blogService.dato$|async|json}} (reattivo) - <button (click)="updateDato()">Click for update</button>

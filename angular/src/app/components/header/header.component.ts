@@ -1,22 +1,22 @@
 import { BlogService } from './../../services/blog.service';
-import { Component, EventEmitter, Input, OnInit, Output, ViewEncapsulation, inject } from '@angular/core';
+import {
+  Component,
+  EventEmitter,
+  Input,
+  OnInit,
+  Output,
+} from '@angular/core';
 
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
-  styleUrls: ['./header.component.scss']
+  styleUrls: ['./header.component.scss'],
 })
 export class HeaderComponent implements OnInit {
-
-  @Input() navItems!: Array<string>;
+  @Input() navItems!: Array<Record<'path' | 'label', string>>;
   @Output() logoClicked = new EventEmitter();
 
-  // private blogService = inject(BlogService);
-  public count$ = this.blogService.dato$;
-  count = this.blogService.dato;
-  obj = this.blogService.obj;
-
-  constructor(private blogService: BlogService){
+  constructor() {
     console.log(`Non riesco a leggere la props e torno undefined`);
     console.log(this.navItems); // undefined
   }
@@ -26,7 +26,7 @@ export class HeaderComponent implements OnInit {
     console.log('navItems:', this.navItems); // [...]
   }
 
-  logoClickHandler(){
+  logoClickHandler() {
     this.logoClicked.emit('Sono un valore emesso al click del logo');
   }
 }

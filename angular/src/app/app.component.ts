@@ -1,8 +1,4 @@
-import { News, Article } from './types/news';
-import { IntPipe } from './pipes/intl/int.pipe';
 import { AfterViewInit, Component, OnChanges, OnInit, SimpleChanges } from '@angular/core';
-import { BehaviorSubject, map, of, tap, switchMap } from 'rxjs';
-import { mock } from './mocks/news';
 
 @Component({
   selector: 'app-root',
@@ -11,11 +7,18 @@ import { mock } from './mocks/news';
 })
 export class AppComponent implements OnInit, OnChanges, AfterViewInit {
 
-  // ok - Output
-  // ok - TS - Function overloads
-  // ok - Post pranzo - Animations
-  // - M/P - Routing
-  // - P - Services
+  // - Services
+  // - Vedere prog. decoratori
+
+  /*
+
+    Scrivere un service dentro la nostra applicazione che espone un counter$
+    e due metodi: increase() e decrease().
+
+    Usare i metodi in due componenti diversi tramite counterService.decrease()
+    e mostrare il counter aggiornato in entrambi in modo reattivo;
+
+  */
 
   // Viene lanciato appena viene fatto il passaggio di props, ma ancora alcuni elementi potrebbero non essere pronti
   ngOnInit(){
