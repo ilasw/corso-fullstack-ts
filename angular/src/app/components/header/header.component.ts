@@ -11,9 +11,12 @@ export class HeaderComponent implements OnInit {
   @Input() navItems!: Array<string>;
   @Output() logoClicked = new EventEmitter();
 
-  public blogService = inject(BlogService);
+  // private blogService = inject(BlogService);
+  public count$ = this.blogService.dato$;
+  count = this.blogService.dato;
+  obj = this.blogService.obj;
 
-  constructor(){
+  constructor(private blogService: BlogService){
     console.log(`Non riesco a leggere la props e torno undefined`);
     console.log(this.navItems); // undefined
   }

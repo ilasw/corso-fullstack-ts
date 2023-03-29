@@ -18,5 +18,7 @@ export class BlogPageComponent {
   updateDato(){
     const oldValue = this.blogService.dato$.getValue();
     this.blogService.dato$.next(oldValue+1);
+    this.blogService.dato += 1;
+    this.blogService.obj = {sononuovo: 'èvero'};
   }
 }

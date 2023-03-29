@@ -1,6 +1,8 @@
 <header class="header">
 
-  {{blogService.dato$|async|json}} - <button (click)="blogService.dato$.next(0)">reset</button>
+  {{obj|json}} (non reattivo) -
+  {{count}} (non reattivo) -
+  {{count$|async|json}} - <button (click)="count$.next(0)">reset</button>
 
   <div class="container">
     <div class="wrapper">

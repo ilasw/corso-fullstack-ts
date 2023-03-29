@@ -9,4 +9,6 @@
 
 <hr />
 
-{{blogService.dato$|async|json}} - <button (click)="updateDato()">Click for update</button>
+{{blogService.obj|json}} (non reattivo) vs
+{{blogService.dato}} (non reattivo) vs
+{{blogService.dato$|async|json}} (reattivo) - <button (click)="updateDato()">Click for update</button>
