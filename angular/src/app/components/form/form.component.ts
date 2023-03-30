@@ -23,8 +23,10 @@ export class FormComponent {
 
   // - creare un utente significa salvarlo dentro il localStorage
   // es: localStorage.set('user-[USER.USERNAME]', JSON.stringify(user))
+
   // - Recuperare un utente by username significa cercare la chiave user-{USERNAME}
   // es: localStorage.get('user-ilasw') -> null | string
+
   // - Loggare utente significa cercare lo user relativo e fare check sulla sua pw
 
   model = new FormGroup({
