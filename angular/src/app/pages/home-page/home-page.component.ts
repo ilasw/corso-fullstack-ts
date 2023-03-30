@@ -1,3 +1,4 @@
+import { categoriesMock } from './../../mocks/categories';
 import { Component } from '@angular/core';
 
 @Component({
@@ -7,10 +8,12 @@ import { Component } from '@angular/core';
 })
 export class HomePageComponent {
 
-  isModalOpen = false;
+  categories = categoriesMock;
 
-  toggle(source:string) {
-    this.isModalOpen = !this.isModalOpen;
-    console.log(`La modale si è chiusa cliccado su:`, source);
-  }
+  // isModalOpen = false;
+
+  // toggle(source:string) {
+  //   this.isModalOpen = !this.isModalOpen;
+  //   console.log(`La modale si è chiusa cliccado su:`, source);
+  // }
 }

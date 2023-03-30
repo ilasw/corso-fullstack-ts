@@ -1,0 +1,16 @@
+<div class="category-label">
+  <button
+    class="category-button"
+    [class.is-open]="isOpen"
+    [disabled]="!category.children?.length"
+    (click)="isOpen = !isOpen"
+  >
+    {{ category.name }}
+  </button>
+</div>
+
+<ol class="category-list" *ngIf="isOpen && category.children?.length">
+  <ng-container *ngFor="let child of category.children">
+    <app-category-item [category]="child"></app-category-item>
+  </ng-container>
+</ol>
