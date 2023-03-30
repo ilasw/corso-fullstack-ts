@@ -21,6 +21,8 @@ import { BlogArticlePageComponent } from './pages/blog-article-page/blog-article
 import { InputSelectComponent } from './components/input-select/input-select.component';
 import { CategoryItemComponent } from './components/category-item/category-item.component';
 import { SliderComponent } from './components/slider/slider.component';
+import { FormComponent } from './components/form/form.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -40,13 +42,15 @@ import { SliderComponent } from './components/slider/slider.component';
     BlogArticlePageComponent,
     InputSelectComponent,
     CategoryItemComponent,
-    SliderComponent
+    SliderComponent,
+    FormComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    BrowserAnimationsModule ,
+    BrowserAnimationsModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

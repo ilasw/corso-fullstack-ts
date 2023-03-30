@@ -1,14 +1,10 @@
-import { SwiperInstance, Swiper as SwiperType } from 'tiny-swiper/types/core';
 import { categoriesMock } from './../../mocks/categories';
 import {
   Component,
-  ViewChild,
-  AfterViewInit,
   ElementRef,
   HostListener,
   inject,
 } from '@angular/core';
-import Swiper from 'tiny-swiper';
 
 @Component({
   selector: 'app-home-page',

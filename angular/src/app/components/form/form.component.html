@@ -1,0 +1,32 @@
+<form #form="ngForm">
+  <input
+  type="text"
+  class="form-control"
+  id="name"
+  required
+  min="3"
+  max=""
+  autocomplete="off"
+  [(ngModel)]="model.name"
+  name="name"
+/>
+<input
+  type="text"
+  class="form-control"
+  id="surname"
+  required
+  autocomplete="off"
+  [(ngModel)]="model.surname"
+  name="surname"
+/>
+<input
+  type="text"
+  class="form-control"
+  id="address"
+  required
+  autocomplete="off"
+  [(ngModel)]="model.address"
+  name="address"
+/>
+<div>TODO: remove this: {{ model | json }}</div>
+</form>
