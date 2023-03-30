@@ -1,32 +1,20 @@
-<form #form="ngForm">
+<form (submit)="submit($event)">
   <input
   type="text"
   class="form-control"
   id="name"
-  required
-  min="3"
-  max=""
   autocomplete="off"
-  [(ngModel)]="model.name"
   name="name"
+  [formControl]="model.name"
 />
-<input
-  type="text"
-  class="form-control"
-  id="surname"
-  required
-  autocomplete="off"
-  [(ngModel)]="model.surname"
-  name="surname"
-/>
-<input
-  type="text"
-  class="form-control"
-  id="address"
-  required
-  autocomplete="off"
-  [(ngModel)]="model.address"
-  name="address"
-/>
-<div>TODO: remove this: {{ model | json }}</div>
+<div *ngIf="model.name.errors">
+  <div *ngIf="model.name.errors['minlength'] as error">
+    Inserisci almeno altri {{error.requiredLength - error.actualLength}}
+    caratteri per rimuovere l'errore
+  </div>
+</div>
+
+<div>{{nameToUpperCase$|async}}</div>
+{{model.name.touched|json}}
+<div>TODO: remove this: {{ model.name.errors | json }}</div>
 </form>
