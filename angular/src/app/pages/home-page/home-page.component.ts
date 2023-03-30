@@ -1,14 +1,30 @@
+import { SwiperInstance, Swiper as SwiperType } from 'tiny-swiper/types/core';
 import { categoriesMock } from './../../mocks/categories';
-import { Component } from '@angular/core';
+import {
+  Component,
+  ViewChild,
+  AfterViewInit,
+  ElementRef,
+  HostListener,
+  inject,
+} from '@angular/core';
+import Swiper from 'tiny-swiper';
 
 @Component({
   selector: 'app-home-page',
   templateUrl: './home-page.component.html',
-  styleUrls: ['./home-page.component.scss']
+  styleUrls: ['./home-page.component.scss'],
 })
 export class HomePageComponent {
 
+  componentEl = inject(ElementRef);
   categories = categoriesMock;
+
+  @HostListener('window:resize', ['$event'])
+  onResize(event: UIEvent) {
+    const el = this.componentEl;
+    console.log(el?.nativeElement?.getBoundingClientRect?.());
+  }
 
   // isModalOpen = false;
 

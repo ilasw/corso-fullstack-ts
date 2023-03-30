@@ -20,6 +20,7 @@ import { BlogPageComponent } from './pages/blog-page/blog-page.component';
 import { BlogArticlePageComponent } from './pages/blog-article-page/blog-article-page.component';
 import { InputSelectComponent } from './components/input-select/input-select.component';
 import { CategoryItemComponent } from './components/category-item/category-item.component';
+import { SliderComponent } from './components/slider/slider.component';
 
 @NgModule({
   declarations: [
@@ -38,7 +39,8 @@ import { CategoryItemComponent } from './components/category-item/category-item.
     BlogPageComponent,
     BlogArticlePageComponent,
     InputSelectComponent,
-    CategoryItemComponent
+    CategoryItemComponent,
+    SliderComponent
   ],
   imports: [
     BrowserModule,
