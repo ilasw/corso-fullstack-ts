@@ -23,6 +23,8 @@ import { CategoryItemComponent } from './components/category-item/category-item.
 import { SliderComponent } from './components/slider/slider.component';
 import { FormComponent } from './components/form/form.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { HighlightDirective } from './directives/highlight.directive';
+import { AccordionDirective } from './directives/accordion.directive';
 
 @NgModule({
   declarations: [
@@ -43,7 +45,9 @@ import { ReactiveFormsModule } from '@angular/forms';
     InputSelectComponent,
     CategoryItemComponent,
     SliderComponent,
-    FormComponent
+    FormComponent,
+    HighlightDirective,
+    AccordionDirective
   ],
   imports: [
     BrowserModule,

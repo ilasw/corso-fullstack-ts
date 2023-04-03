@@ -22,10 +22,10 @@ export class FormComponent {
   // Ha 3 metodi: search(username), register({username, password}), login({ username, password })
 
   // - creare un utente significa salvarlo dentro il localStorage
-  // es: localStorage.set('user-[USER.USERNAME]', JSON.stringify(user))
+  // es: localStorage.setItem('user-[USER.USERNAME]', JSON.stringify(user))
 
   // - Recuperare un utente by username significa cercare la chiave user-{USERNAME}
-  // es: localStorage.get('user-ilasw') -> null | string
+  // es: localStorage.getItem('user-ilasw') -> null | string
 
   // - Loggare utente significa cercare lo user relativo e fare check sulla sua pw
 

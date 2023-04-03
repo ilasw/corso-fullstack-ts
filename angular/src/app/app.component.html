@@ -2,4 +2,24 @@
             (logoClicked)="handleClickedOnNav($event)"
 ></app-header>
 
+<ng-container [ngSwitch]="userRole">
+  <div *ngSwitchCase="'guest'">Devi fare la login</div>
+  <div *ngSwitchCase="'user'">Accedi al tuo profilo</div>
+  <div *ngSwitchCase="'admin'">Vai all'area di amministrazione</div>
+  <div *ngSwitchDefault>Non hai un ruolo valido</div>
+</ng-container>
+
+<div>
+  <div>Custom directive1</div>
+  <div>Custom directive2</div>
+  <div>Custom directive3</div>
+</div>
+
+<hr />
+
+<div appAccordion>
+  <button>Open/Close</button>
+  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Pariatur sint, ullam odit quia inventore iusto magnam laborum laboriosam ab ratione officiis eos voluptas aliquam dignissimos libero non earum eligendi optio!</p>
+</div>
+
 <router-outlet></router-outlet>

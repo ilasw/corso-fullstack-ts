@@ -7,8 +7,11 @@ import { AfterViewInit, Component, OnChanges, OnInit, SimpleChanges } from '@ang
 })
 export class AppComponent implements OnInit, OnChanges, AfterViewInit {
 
-  // - Services
-  // - Vedere prog. decoratori
+  // Direttive
+  // HttpInterceptor
+  // Signals (opt.)
+
+  userRole = 'guest'
 
   /*
 
