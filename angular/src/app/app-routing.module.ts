@@ -1,3 +1,4 @@
+import { RecipePageComponent } from './pages/recipe-page/recipe-page.component';
 import { BlogArticlePageComponent } from './pages/blog-article-page/blog-article-page.component';
 import { BlogPageComponent } from './pages/blog-page/blog-page.component';
 import { EmptyPageComponent } from './pages/empty-page/empty-page.component';
@@ -47,6 +48,10 @@ const routes: Routes = [
         component: HomePageComponent,
       },
     ],
+  },
+  {
+    path: 'recipes',
+    component: RecipePageComponent
   },
   {
     title: '404 - Not Found',

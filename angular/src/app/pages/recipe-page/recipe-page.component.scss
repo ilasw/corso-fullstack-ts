@@ -1,0 +1,16 @@
+img{
+  aspect-ratio: 1 / 1;
+  object-fit: contain;
+  object-position: center;
+}
+
+ul{
+  margin: 0;
+  padding: 0;
+}
+
+li{
+  display:  flex;
+  flex-flow: row nowrap;
+  gap: 1rem;
+}

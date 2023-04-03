@@ -1,0 +1,6 @@
+{
+  "/cryptocurrency" : {
+    "secure": false,
+    "logLevel": "debug"
+  }
+}

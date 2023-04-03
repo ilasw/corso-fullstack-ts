@@ -1,0 +1,11 @@
+<ng-container *ngIf="categories$|async as categories">
+  <ul>
+    <li *ngFor="let category of categories">
+      <img width="150" height="150" [src]="category.strCategoryThumb" [alt]="category.strCategory">
+      <div class="content">
+        <h3>{{category.strCategory}}</h3>
+        <p>{{category.strCategoryDescription}}</p>
+      </div>
+    </li>
+  </ul>
+</ng-container>
