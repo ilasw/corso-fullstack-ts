@@ -15,7 +15,6 @@ export class CacheInterceptor implements HttpInterceptor {
     next: HttpHandler
   ): Observable<HttpEvent<any>> {
     console.log(`${req.method} - ${req.urlWithParams}`);
-
     const endpoint = req.urlWithParams.split('/').at(-1);
     const isEndpointCached = endpoint && endpoint in cache;
 
