@@ -19,7 +19,6 @@ export class CacheInterceptor implements HttpInterceptor {
     const isEndpointCached = endpoint && endpoint in cache;
 
     if (isEndpointCached && req.method === 'GET') {
-      console.log(cache[endpoint])
       return of(cache[endpoint]);
     }
 
